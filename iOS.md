@@ -17,4 +17,4 @@
 - [Generic에 대해서 설명하시오.](https://github.com/cestbonciel/All-About-iOS/issues/2)
 
 # ARC
-- ARC란 무엇인지 설명하시오.
+- [ARC란 무엇인지 설명하시오.](/ARC.md)
