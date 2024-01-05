@@ -1,4 +1,4 @@
-# String 은 왜 subscript 로 접근이 안되는지 설명하시오.
+## String 은 왜 subscript 로 접근이 안되는지 설명하시오.
 
 Swift에서 String은 Collection이기는 하지만, subscript를 통한 접근이 불가능하다. 이는 **String이 Unicode를 다루는 특성** 때문이다.
 
