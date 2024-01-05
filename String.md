@@ -18,8 +18,8 @@ String은 각 문자가 Unicode scalar 값으로 이루어진 것이 아니라, 
 
 
 <details>
-      <summary style="font-size: 24px; font-weight: 500; user-select: none;">
-        <h6 style="display: inline"> Subscript </h2>
+      <summary style="font-size: 32px; font-weight: 500; user-select: none;">
+        <h3 style="display: inline"> Subscript </h3>
       </summary>
     <hr>
 
