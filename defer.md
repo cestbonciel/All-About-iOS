@@ -61,3 +61,10 @@ executeDefers()
 ```
 실행 순서가 역순이기 때문에 선언된 순서의 반대로 print 되고 있는 것을 확인할 수 있다.
 <img src="image/defer03_240107.png">
+
+### 사용하는 경우
+함수를 종료하기 직전에 정리해야 하는 변수나 상수를 처리하는 용도 
+
+> 참고
+
+https://babbab2.tistory.com/80
