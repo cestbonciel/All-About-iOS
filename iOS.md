@@ -25,3 +25,7 @@
 # ARC
 - [ARC란 무엇인지 설명하시오.](/ARC.md)
  
+
+
+# Advanced
+- [Foundation과 Core Foundation 프레임워크의 차이점을 설명하시오.](https://github.com/cestbonciel/All-About-iOS/issues/4)
