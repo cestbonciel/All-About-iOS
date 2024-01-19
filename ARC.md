@@ -71,3 +71,97 @@ ARC 는 세번째이자 마지막 강한 참조가 깨질 때까지 Fruit 인스
 reference3 = nil
 // 3 banana are being deinitialized into tummy.
 ```
+---
+# Strong 과 Weak 참조방식에 대해 설명하시오.
+
+클래스의 인스턴스가 강한 참조가 없는 지점에 도달하지 않는 코드를 작성할 수 있음. 이는 두 클래스 인스턴스가 서로에 대한 강한 참조를 유지하여 각 인스턴스가 다른 인스턴스를 유지하는 경우 발생 
+
+→ 이것을 강한 참조 사이클(Strong reference Cycle) 이라고 함
+
+```Swift
+class Person {
+    let name: String
+    init(name: String) { self.name = name }
+    var apartment: Apartment?
+    deinit { print("\(name) is being deinitialized.") }
+}
+
+class Apartment {
+    let unit: String
+    init(unit: String) { self.unit = unit }
+    var tenant: Person?
+    deinit { print("Apartment \(unit) is being deinitialized.") }
+}
+
+var nat: Person?
+var unit4A: Apartment?
+
+nat = Person(name: "Nat Seohyun Kim")
+unit4A = Apartment(unit: "4A")
+
+nat!.apartment = unit4A
+unit4A!.tenant = nat
+```
+
+Person 과 Apartment 인스턴스 간의 강한 참조가 남아있고 중단되지 않는다. 
+
+이를 해결하기 위한 방법으로
+
+### -> 클래스 인스턴스 간 강한 참조 사이클 해결 방법이 있다. 
+
+# Weak Reference (약한참조)
+
+Swift 는 클래스 타입의 프로퍼티와 작업할 때 강한 참조 사이클을 해결하기 위해 2가지 방법을 제공한다. 
+
+Weak, unowned references 
+
+약한 참조에 대해서만 언급하자면
+
+### 약한 참조는 참조하는 instance 를 강하게 유지하지 않는 참조 
+→ ARC 가 참조된 인스턴스를 처리하는 것을 중지하지 않는다. 이러한 동작은 참조가 강한 참조 사이클의 일부가 되는 것을 방지한다. 
+
+약한 참조는 참조하는 인스턴스를 강하게 유지하지 않기 때문에 약한 참조가 참조하는 동안 해당 인스턴스가 할당 해제될 수 있다. 따라서 ARC 는 참조하는 인스턴스가 할당 해제되면 `nil` 로 약한 참조를 자동으로 설정한다. 
+
+약한 참조는 런타임에 값을 `nil` 로 변경하는 것을 허락해야하므로 항상 옵셔널 타입의 변수로 선언된다. 
+
+UIKit 에서 storyboard 인터페이스 빌더에서 weak var 로 설정되는 UI 컴포넌트를 떠올려보면 쉽다.
+```Swift
+@IBOutlet weak var mainLabel: UILabel! 
+```
+
+```Swift
+class Person {
+    let name: String
+    init(name: String) { self.name = name }
+    var apartment: Apartment?
+    deinit { print("\(name) is being deinitialized.") }
+}
+
+class Apartment {
+    let unit: String
+    init(unit: String) { self.unit = unit }
+    weak var tenant: Person?
+    deinit { print("Apartment \(unit) is being deinitialized.") }
+}
+
+var nat: Person?
+var unit4A: Apartment?
+
+nat = Person(name: "Nat Seohyun Kim")
+unit4A = Apartment(unit: "4A")
+
+nat!.apartment = unit4A
+unit4A!.tenant = nat
+
+nat = nil
+// Nat Seohyun Kim is being deinitialized.
+unit4A = nil
+// Apartment 4A is being deinitialized.
+```
+
+이렇게 `Apartment` 클래스의 변수 `tenant` 앞에 weak 를 붙이면 
+옵셔널 Person 클래스를 참조하는 변수 `nat`과  옵셔널 Apartment 클래스를 참조하는 `unit4A` 가 nil 이 될 때 할당해제가 된다.
+
+서로 참조하는 강한 순환 참조를 하는 위의 경우에서는 쉽게 할당해제가 되지 않았다.
+다시 한 번 정리하자면 참조가 강한 참조 사이클의 일부가 되는 것을 방지하고 
+프로퍼티나 변수 선언 앞에 weak 키워드를 위치해 약한 참조를 나타낸다.
