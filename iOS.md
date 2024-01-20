@@ -21,6 +21,7 @@
 - [String은 왜 subscript로 접근이 안되는지 설명하시오.](String.md##string-은-왜-subscript-로-접근이-안되는지-설명하시오)
 - [defer란 무엇인지 설명하시오.](defer.md)
 - [탈출클로저에 대해 설명하시오.](Closure.md)
+- [Extension에 대해 설명하시오.](Extensions.md#extension에-대해-설명하시오)
 
 # ARC
 - [ARC란 무엇인지 설명하시오.](/ARC.md)
