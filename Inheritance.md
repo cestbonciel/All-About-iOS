@@ -3,6 +3,7 @@
 둘 다 클래스의 상속과 연관된 특성이다. 
 ## Type Casting(타입변환)
 예를 들어, 클래스 B는 A의 타입으로 클래스 인스턴스가 생성 가능하다. 그럴 경우엔 메서드가 있다면 overriding(재정의)해서 사용도 가능하다. <br>
+### Down Casting(다운캐스팅)
 그리고 그 인스턴스에 접근하게 될 때에는 **실패할 가능성**을 생각해 다운캐스팅(`as?` 또는 `as!` 강제 언래핑) 을 해준다. <br>
 `as?` 을 할 경우에는 **성공할 때**에는 Optional 값을 던지고, **실패할 경우**에는 nil 을 반환하게 된다. 
 
@@ -31,6 +32,32 @@ for album in allAlbums {
 ```
 <img src="image/typeCasting0.png">
 
+### ambiguous type 인 경우 
+```Swift
+class Fruit {
+    var sort: String {
+        get {
+            return "과일"
+        }
+        set(newFruit) {
+            print("새 과일:\(newFruit)")
+        }
+    }
+    var quantity = 1
+}
+
+class Customer {
+    var name = "구매자 성명"
+    var price = 10000
+}
+
+let mart: [AnyObject] = [Fruit(), Customer()]
+```
+예를 들어 클래스 `Fruit` 과 클래스 `Customer` 가 있다고 치자. <br>
+그 클래스를 담은 `AnyObject` 배열 타입인 `mart` 가 있고 <br>
+mart 인스턴스의 안에 있는 클래스에 접근하려면 그 타입이 뭔지 알아야하고 그 타입에 대해 명시해줘야하므로 다운캐스팅으로 접근한다. 
+<img src="image/downCasting.png">
+### UpCasting
 > **Upcasting 의 경우**도 있는데 B클래스를 상속받은 A가 B타입으로 인스턴스를 생성할 경우 
 
 
