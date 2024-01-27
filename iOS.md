@@ -22,6 +22,7 @@
 - [defer란 무엇인지 설명하시오.](defer.md)
 - [탈출클로저에 대해 설명하시오.](Closure.md)
 - [Extension에 대해 설명하시오.](Extensions.md#extension에-대해-설명하시오)
+- [타입 변환(Type Casting)과 다형성(Polymorphism)에 대해 설명해보세요.](Inheritance.md#타입-변환type-casting과-다형성polymorphism에-대해-설명해보세요)
 
 # ARC
 - [ARC란 무엇인지 설명하시오.](/ARC.md)
