@@ -24,6 +24,7 @@
 - [Extension에 대해 설명하시오.](Extensions.md#extension에-대해-설명하시오)
 - [타입 변환(Type Casting)과 다형성(Polymorphism)에 대해 설명해보세요.](Inheritance.md#타입-변환type-casting과-다형성polymorphism에-대해-설명해보세요)
 - [Singleton 패턴을 활용하는 경우를 예를 들어 설명하시오.](Singleton.md#singleton-패턴을-활용하는-경우를-예를-들어-설명하시오)
+- [instance 메서드와 class 메서드의 차이점을 설명하시오.](Method.md#instance-메서드와-class-메서드의-차이점을-설명하시오)
 
 # ARC
 - [ARC란 무엇인지 설명하시오.](/ARC.md)
